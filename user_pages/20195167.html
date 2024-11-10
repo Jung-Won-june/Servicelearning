@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챌린지와 스트레칭</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sidebar">
+        <button class="menu-btn" data-section="challenge-section">챌린지</button>
+        <button class="menu-btn" data-section="stretching-section">스트레칭</button>
+        <button class="menu-btn" data-section="login-section">로그인</button>
+    </div>
+
+    <div id="main-content">
+        <!-- 챌린지 부분 -->
+        <section id="challenge-section">
+            <h2>챌린지 달력</h2>
+            <table id="calendar">
+                <thead>
+                    <tr>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                        <th>일</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 스트레칭 부분 -->
+        <section id="stretching-section" style="display: none;">
+            <h2>스트레칭 부위를 선택하세요</h2>
+            <div id="body-parts">
+                <button class="body-part-btn" data-part="neck">목</button>
+                <button class="body-part-btn" data-part="shoulders">어깨</button>
+                <button class="body-part-btn" data-part="back">등</button>
+                <button class="body-part-btn" data-part="wrists">손목</button>
+            </div>
+            <div id="stretching-description-section">
+                <p id="stretching-description">스트레칭 부위를 선택해 주세요.</p>
+            </div>
+        </section>
+
+        <!-- 로그인 부분 -->
+        <section id="login-section" style="display: none;">
+            <div id="login-container"></div>
+        </section>
+    </div>
+
+    <script src="challenge_template.js"></script>
+</body>
+</html>

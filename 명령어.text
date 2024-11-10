@@ -1,0 +1,10 @@
+venv생성 : python3 -m venv venv
+venv실행 : venv/Scripts/activate
+서버 실행 : uvicorn main:app --reload
+파일 생성 : notepad filename
+
+pip install pymysql
+pip install psycopg2-binary
+pip install passlib[bcrypt]
+pip install sqlalchemy
+이렇게 네가지 설치해야 models.py의 데이터베이스 모델을 정의할 수 있음.
