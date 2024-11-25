@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/newchal.css">
+    <title>로그인</title>
+</head>
+<body>
+<!--
+    <h1>로그인 페이지</h1>
+    <form action="/login" method="post">
+        <label for="student_id">Username:</label>
+        <input type="text" id="student_id" name="student_id" required>
+        <button type="submit">로그인</button>
+    </form>
+-->
+    <div class="login-container">
+        <div class="login-form">
+            <h2>로그인</h2>
+            <form action="/login" method="post">
+                <div class="input-group">
+                    <label for="student_id">사용자 이름</label>
+                    <input type="text" id="student_id" name="student_id" required>
+                </div>
+                <button type="submit" class="login-button">로그인</button>
+            </form>
+        </div>
+    </div>
+    <!-- JavaScript 파일 연결 -->
+    <script src="/static/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* 페이지 이동 방지 */
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+nav ul li {
+    display: inline;
+    padding: 14px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+.hero-section {
+    background-image: url('/static/exercise_background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.cta-buttons .primary-btn, .cta-buttons .secondary-btn {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.primary-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.secondary-btn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background-color: #5a6268;
+}
+
+#challenge-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.challenge-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.challenge-btn:hover {
+    background-color: #45a049;
+}
+
+#sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+#sidebar .menu-btn {
+    display: block;
+    background-color: #444;
+    color: #fff;
+    padding: 12px;
+    margin: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+#sidebar .menu-btn:hover {
+    background-color: #555;
+}
+
+#main-content {
+    margin-left: 240px;
+    padding: 20px;
+    width: calc(100% - 240px);
+}
+
+table {
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    width: 14.28%;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#leaderboard {
+    margin-top: 20px;
+}
+
+.leaderboard-item {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.calendar-cell.completed {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+}
+
+.calendar-cell.running-completed {
+    background-color: #FFA500;
+    color: white;
+    border-radius: 50%;
+}
+
+#stretching-description-section {
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+video {
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.body-part-btn {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.body-part-btn:hover {
+    background-color: #0056b3;
+}
+
+.body-part-btn:focus {
+    outline: none;
+}
