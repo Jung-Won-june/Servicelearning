@@ -37,7 +37,7 @@ class Challenge(Base):
     __tablename__ = "challenges"
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))  # 사용자 ID
-    date = Column(Date, index=True)  # 챌린지 날짜
+    date = Column(Integer, index=True)  # 챌린지 날짜
     challenge_type = Column(String)  # 'running', 'pullups', 'gym'
     data = Column(String)  # JSON 형태로 저장되는 세부 데이터 (예: 거리, 속도 등)
     user = relationship("User", back_populates="challenges")
@@ -129,8 +129,8 @@ async def challenge_page(student_id: str):
         return HTMLResponse(content="잘못된 경로 요청입니다.", status_code=400)
     try:
         with open(user_page_path, "r", encoding="utf-8") as file:
-            content = file.read()
-        return HTMLResponse(content=content.replace('challenge.css', '/static/challenge.css').replace('challenge_template.js', '/static/challenge_template.js'))
+            return HTMLResponse(content = file.read())
+            #return HTMLResponse(content=content.replace('challenge.css', '/static/challenge.css').replace('challenge_template.js', '/static/challenge_template.js'))
     except FileNotFoundError:
         return HTMLResponse(content="페이지를 찾을 수 없습니다.", status_code=404)
     except Exception as e:
@@ -188,17 +188,16 @@ async def submit_challenge(student_id: str, data: dict, db: Session = Depends(ge
     return {"message": "Challenge submitted successfully"}
 
 
-@app.get("/challenge/leaderboard")
+@app.get("/challenge/{student_id}/leaderboard")
 async def get_leaderboard(db: Session = Depends(get_db)):
     top_runner = db.query(User).order_by(User.running_km.desc()).first()
     top_pullup = db.query(User).order_by(User.pullups_count.desc()).first()
-
     return {
         "top_runners": [
-            {"student_id": top_runner.student_id, "running_km": top_runner.running_km} if top_runner else {"student_id": "N/A", "running_km": 0}
+            {"student_id": top_runner.student_id, "running_km": top_runner.running_km} if ((top_runner is not None) and (top_runner.running_km != 0)) else {"student_id": "N/A", "running_km": 0}
         ],
         "top_pullups": [
-            {"student_id": top_pullup.student_id, "pullups_count": top_pullup.pullups_count} if top_pullup else {"student_id": "N/A", "pullups_count": 0}
+            {"student_id": top_pullup.student_id, "pullups_count": top_pullup.pullups_count} if ((top_pullup is not None) and (top_pullup.pullups_count != 0)) else {"student_id": "N/A", "pullups_count": 0}
         ]
     }
 

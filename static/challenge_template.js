@@ -1,6 +1,4 @@
 //진행상황 가져오기
-document.addEventListener("DOMContentLoaded", loadLeaderboard);
-
 document.addEventListener('DOMContentLoaded', async () => {
     const studentId = window.location.pathname.split('/')[2];
 
@@ -21,7 +19,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     // 리더보드 호출
     try {
-        await loadLeaderboard(); // 리더보드 호출 추가
+        //await loadLeaderboard(); // 리더보드 호출 추가
+        const response = await fetch(`/challenge/${studentId}/leaderboard`);
+        if (!response.ok) {
+            console.error("Failed to load leaderboard");
+            return;
+        }
+        const data = await response.json();
+        console.log("Leaderboard Data:",data);
+    
+        // 러닝 리더보드 업데이트
+        const runnersList = document.querySelector("#top-runners ul");
+        runnersList.innerHTML = data.top_runners
+            .map(runner => `<li>${runner.student_id}: ${runner.running_km} km</li>`)
+            .join("");
+    
+        // 턱걸이 리더보드 업데이트
+        const pullupsList = document.querySelector("#top-pullups ul");
+        pullupsList.innerHTML = data.top_pullups
+            .map(pullup => `<li>${pullup.student_id}: ${pullup.pullups_count} 회</li>`)
+            .join("");
     } catch (error) {
         console.error("Error loading leaderboard:", error);
         alert("리더보드 데이터를 불러오지 못했습니다.");
@@ -80,6 +97,7 @@ async function submitChallenge(studentId, challengeData) {
         const button = document.querySelector(`#calendar button[data-date="${challengeData.date}"]`);
         button.disabled = true;
         button.textContent += " ✅";
+        console.log(`Button updated: ${button.textContent}`); // 디버깅 로그 추가
         closeChallengeModal(); // 제출 성공 후 모달 닫기
     } else {
         const error = await response.json();
@@ -164,12 +182,13 @@ function setChallengeType(type) {
 }
 
 async function loadLeaderboard() {
-    const response = await fetch("/challenge/leaderboard");
+    const response = await fetch(`/challenge/${studentId}/leaderboard`);
     if (!response.ok) {
         console.error("Failed to load leaderboard");
         return;
     }
     const data = await response.json();
+    console.log("Leaderboard Data:",data);
 
     // 러닝 리더보드 업데이트
     const runnersList = document.querySelector("#top-runners ul");
