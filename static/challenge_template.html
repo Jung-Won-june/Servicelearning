@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -57,3 +58,47 @@
     <script src="/static/challenge_template.js"></script>
 </body>
 </html>
+=======
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30일 러닝 챌린지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/sytle.css">
+</head>
+<body>
+    <h1>30일 러닝 챌린지에 도전해보세요!</h1>
+    <p>이번 한 달 동안:</p>
+    <ul id="progress">
+        <li>달리기: <span id="running-km">0</span> km</li>
+        <li>턱걸이: <span id="pullups-count">0</span> 회</li>
+        <li>헬스: <span id="gym-sessions">0</span> 회</li>
+    </ul>
+
+    <div id="calendar"></div>
+
+    <div id="challenge-modal" style="display: none;">
+        <h3>챌린지 입력</h3>
+        <div id="challenge-inputs"></div>
+        <button id="submit-button">제출</button>
+        <button onclick="closeChallengeModal()">닫기</button> <!-- 닫기 버튼 추가 -->
+    </div>
+    
+
+    <div id="leaderboard">
+        <h3>🏆 리더보드</h3>
+        <div id="top-runners">
+            <h4>Top Runners</h4>
+            <ul></ul>
+        </div>
+        <div id="top-pullups">
+            <h4>Top Pullups</h4>
+            <ul></ul>
+        </div>
+    </div>
+
+    <script src="challenge_template.js"></script>
+</body>
+</html>
+>>>>>>> 180d3a17f01c6395e900fff74a81a2c8ac67a9ca

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>로그인 페이지</title>
 </head>
 <body>
@@ -13,6 +14,32 @@
         <button type="submit">로그인</button>
     </form>
 
+=======
+    <link rel="stylesheet" href="/static/sytle.css">
+    <title>로그인</title>
+</head>
+<body>
+<!--
+    <h1>로그인 페이지</h1>
+    <form action="/login" method="post">
+        <label for="student_id">Username:</label>
+        <input type="text" id="student_id" name="student_id" required>
+        <button type="submit">로그인</button>
+    </form>
+-->
+    <div class="login-container">
+        <div class="login-form">
+            <h2>로그인</h2>
+            <form action="/login" method="post">
+                <div class="input-group">
+                    <label for="student_id">학번</label>
+                    <input type="text" id="student_id" name="student_id" required>
+                </div>
+                <button type="submit" class="login-button">로그인</button>
+            </form>
+        </div>
+    </div>
+>>>>>>> 180d3a17f01c6395e900fff74a81a2c8ac67a9ca
     <!-- JavaScript 파일 연결 -->
     <script src="/static/login.js"></script>
 </body>
