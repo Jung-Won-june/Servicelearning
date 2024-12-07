@@ -390,5 +390,5 @@ app.add_middleware(
 # 애플리케이션 실행
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.environ.get("PORT", 8000))  # Railway에서 PORT 환경변수 읽기
+    port = int(os.environ.get("PORT", 8080))  # Railway에서 PORT 환경변수 읽기
     uvicorn.run(app, host="0.0.0.0", port=port)
