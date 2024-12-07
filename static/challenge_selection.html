@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챌린지 선택</title>
+    <link rel="stylesheet" href="/static/challenge_selection.css">
+    <link rel="stylesheet" href="/static/sidebar.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <ul>
+            <li><a href="/challenge_selection">챌린지</a></li>
+            <li><a href="/stretching">스트레칭</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="challenge-selection-section">
+            <h2>챌린지를 선택하세요</h2>
+            <div class="challenge-buttons">
+                <button onclick="window.location.href='/challenge/workout_challenge'">오운완 챌린지</button>
+                <button onclick="window.location.href='/challenge/running_challenge'">러닝 챌린지</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

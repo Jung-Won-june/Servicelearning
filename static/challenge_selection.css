@@ -1,0 +1,159 @@
+/* 기본 스타일 */
+html,
+body {
+  height: 100%; /* 화면 전체를 꽉 채우도록 설정 */
+  margin: 0; /* 기본 마진을 없애줌 */
+  font-family: "Roboto", sans-serif; /* 폰트 변경 */
+  overflow: hidden; /* 화면을 넘지 않도록 설정 */
+}
+
+/* 배경 스타일 */
+body {
+  background: hsl(124, 35%, 28%);
+  color: white;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  height: 100vh; /* 화면 가득 차게 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  flex-direction: column; /* 세로로 정렬 */
+  box-sizing: border-box;
+  overflow: hidden; /* 스크롤을 없애기 위해 */
+}
+#home-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#home-button:hover {
+  color: #ffeb3b; /* 호버 시 글자 색상 변경 */
+}
+
+/* 사이드바 스타일 */
+#sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px; /* 사이드바 너비를 좁게 설정 */
+  height: 100vh;
+  background-color: #333; /* 사이드바 배경색 */
+  color: white;
+  padding-top: 20px;
+  padding-left: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* 부드러운 그림자 효과 추가 */
+  transition: width 0.3s ease; /* 사이드바 확장/축소 애니메이션 */
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li {
+  margin-bottom: 20px;
+}
+
+#sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s ease, padding-left 0.3s ease; /* 호버 시 배경색과 패딩 변화 */
+}
+
+#sidebar ul li a:hover {
+  background-color: #ffeb3b; /* 호버 시 배경색 변경 */
+  padding-left: 30px; /* 호버 시 패딩 확대 */
+}
+
+/* 챌린지 선택 섹션 */
+#challenge-selection-section {
+  margin-left: 140px; /* 사이드바 공간을 제외하고 콘텐츠 배치 */
+  padding: 40px 20px; /* 위쪽 여백을 더 늘려서 텍스트를 위로 배치 */
+  width: calc(100% - 140px); /* 사이드바 너비를 제외한 나머지 영역 */
+  text-align: center;
+  border-radius: 10px;
+}
+
+#challenge-selection-section h2 {
+  font-size: 48px; /* 폰트 크기 증가 */
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: #ffeb3b; /* 그라데이션 배경 */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* 텍스트 그림자 */
+}
+
+/* 버튼 스타일 */
+.challenge-buttons button {
+  padding: 15px 50px; /* 버튼 크기 */
+  font-size: 20px; /* 버튼 글자 크기 */
+  font-weight: 600; /* 글씨 두껍게 */
+  color: #388e3c; /* 진한 초록색 글자 */
+  background-color: white; /* 버튼 배경을 사이드바 색상과 일치시킴 */
+  border: none;
+  border-radius: 50px; /* 둥근 버튼 */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  width: 100%; /* 버튼 너비 */
+  max-width: 500px; /* 최대 너비 */
+  margin-bottom: 20px; /* 버튼 간 간격 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 버튼에 그림자 효과 */
+}
+
+.challenge-buttons button:hover {
+  transform: scale(1.05); /* 버튼 호버 시 확대 */
+  background-color: #ffeb3b; /* 버튼 호버 시 색 변화 */
+  color: #333; /* 호버 시 글자 색상 */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* 버튼 호버 시 그림자 강화 */
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1024px) {
+  #challenge-selection-section h2 {
+    font-size: 36px; /* 화면이 작아지면 텍스트 크기 조정 */
+  }
+
+  .challenge-buttons button {
+    font-size: 18px; /* 버튼 글자 크기 줄이기 */
+    padding: 12px 36px; /* 버튼 크기 줄이기 */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #challenge-selection-section h2 {
+    font-size: 28px; /* 더 작은 화면에서는 텍스트 크기 감소 */
+  }
+
+  .challenge-buttons button {
+    font-size: 16px; /* 버튼 텍스트 크기 줄이기 */
+    padding: 10px 30px; /* 버튼 크기 줄이기 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #challenge-selection-section h2 {
+    font-size: 20px; /* 더 작은 화면에서는 텍스트 크기 추가 감소 */
+    margin-bottom: 20px; /* 텍스트와 버튼 사이 간격 줄이기 */
+  }
+
+  .challenge-buttons button {
+    font-size: 14px; /* 버튼 글자 크기 줄이기 */
+    padding: 8px 24px; /* 버튼 크기 줄이기 */
+    width: 80%; /* 버튼 너비 더 넓게 설정 */
+    max-width: 300px; /* 버튼 최대 너비 제한 */
+  }
+}

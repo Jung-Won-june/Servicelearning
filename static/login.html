@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/login.css">
+    <title>로그인</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>로그인</h2>
+            <form action="/login" method="post">
+                <div class="input-group">
+                    <label for="student_id">학번</label>
+                    <input type="text" id="student_id" name="student_id" required>
+                </div>
+                <button type="submit" class="login-button">로그인</button>
+            </form>
+        </div>
+    </div>
+    <script src="/static/login.js"></script>
+</body>
+</html>

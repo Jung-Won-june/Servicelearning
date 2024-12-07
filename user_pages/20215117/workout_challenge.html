@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오운완 챌린지</title>
+    <link rel="stylesheet" href="/static/workout_challenge.css">
+    <link rel="stylesheet" href="/static/sidebar.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin defer></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin defer></script>
+</head>
+<body>
+    <nav id="sidebar">
+        <ul>
+            <li><a href="/challenge_check">챌린지</a></li>
+            <li><a href="/stretching">스트레칭</a></li>
+        </ul>
+    </nav>
+    <section id="workout-challenge-section">
+        <h2>오운완 챌린지</h2>
+        <p class="calendar-instructions">캘린더에서 날짜를 클릭하여 활동을 체크하세요! </p>
+        <div class="calendar-container">
+            <table id="calendar">
+                <thead>
+                    <tr>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                        <th>일</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body"></tbody>
+            </table>
+        </div>
+        <form id="upload-form" class="upload-container">
+            <label for="workout-photo">오늘의 운동 사진 업로드:</label>
+            <input type="file" id="workout-photo" name="workout-photo" accept="image/*">
+            <button type="button" id="custom-file-input" class="custom-file-input">사진 선택</button>
+            <button type="button" id="upload-button" class="upload-button">업로드</button>
+        </form>
+
+    </section>
+    <script src="/static/workout_challenge.js" defer></script>
+</body>
+</html>

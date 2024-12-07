@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>러닝 챌린지</title>
+    <link rel="stylesheet" href="/static/running_challenge.css">
+    <link rel="stylesheet" href="/static/sidebar.css">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin defer></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin defer></script>
+</head>
+<body>
+    <nav id="sidebar">
+        <ul>
+            <li><a href="/challenge_check">챌린지</a></li>
+            <li><a href="/stretching">스트레칭</a></li>
+        </ul>
+    </nav>
+    <section id="running-challenge-section">
+        <h2>러닝 챌린지</h2>
+        <form id="running-form" class="running-container">
+            <label for="running-photo">오늘의 러닝 사진 업로드:</label>
+            <input type="file" id="running-photo" name="running-photo" accept="image/*">
+            <label for="running-distance">오늘의 러닝 거리 (km):</label>
+            <input type="number" id="running-distance" name="running-distance" step="0.1" min="0" required>
+            <button type="button" id="upload-button">업로드</button>
+        </form>
+        <div id="leaderboard-section">
+            <h3>이번 달 러닝 리더보드</h3>
+            <div id="leaderboard"></div>
+        </div>
+    </section>
+    <script src="/static/running_challenge.js" defer></script>
+</body>
+</html>

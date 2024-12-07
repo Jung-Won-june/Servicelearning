@@ -1,0 +1,131 @@
+/* 기본 스타일 */
+html,
+body {
+  height: 100%; /* 전체 화면을 꽉 채우도록 설정 */
+  margin: 0; /* 기본 마진을 없애줌 */
+  font-family: "Roboto", sans-serif; /* 폰트 변경 */
+  overflow: hidden; /* 화면을 넘지 않도록 설정 */
+}
+
+/* 배경 스타일 */
+body {
+  background: hsl(124, 35%, 28%);
+  color: white;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  height: 100vh; /* 화면 가득 차게 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  flex-direction: column; /* 세로로 정렬 */
+  box-sizing: border-box;
+  overflow: hidden; /* 스크롤을 없애기 위해 */
+}
+
+/* 로그인 버튼 스타일 (오른쪽 상단) */
+#login-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#login-button:hover {
+  color: #ffeb3b; /* 호버 시 글자 색상 변경 */
+}
+
+/* WellBeingNavigator 텍스트 스타일 */
+#main-text {
+  font-size: 100px; /* 기본 텍스트 크기 */
+  font-weight: 700; /* 두꺼운 글씨 */
+  margin-bottom: 50px; /* 텍스트와 버튼 사이 여백 */
+  background: linear-gradient(
+    45deg,
+    #ffeb3b,
+    #ff9800
+  ); /* 노란색과 주황색 그라데이션 */
+  -webkit-background-clip: text; /* 글자에 그라데이션 적용 */
+  color: transparent; /* 배경을 투명하게 설정 */
+  letter-spacing: 4px; /* 글자 사이 간격 */
+  text-transform: uppercase; /* 대문자로 변경 */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+  word-wrap: break-word; /* 줄바꿈 처리 */
+}
+
+#main-text span {
+  display: block;
+}
+
+/* 버튼 컨테이너 스타일 */
+#buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 버튼을 중앙 정렬 */
+  gap: 30px; /* 버튼 사이 간격 */
+  width: 100%; /* 버튼이 화면 가로 크기 맞추기 */
+}
+
+/* 버튼 스타일 */
+.main-button {
+  padding: 20px 80px; /* 버튼의 크기 */
+  font-size: 20px; /* 버튼 글자 크기 */
+  font-weight: 600; /* 글씨 두껍게 */
+  color: #388e3c; /* 진한 초록색 글자 */
+  background-color: white; /* 버튼 배경 */
+  border: none;
+  border-radius: 50px; /* 둥근 버튼 */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease; /* 버튼 효과 */
+  width: 100%; /* 버튼의 너비 */
+  max-width: 600px; /* 최대 너비 제한 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 버튼에 그림자 효과 */
+}
+
+.main-button:hover {
+  transform: scale(1.05); /* 호버 시 버튼 확대 */
+  background-color: #f1f1f1; /* 호버 시 버튼 색 변화 */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
+}
+
+/* 반응형 디자인 - 화면 크기에 따라 버튼 크기 조절 */
+@media screen and (max-width: 1024px) {
+  #main-text {
+    font-size: 48px; /* 화면이 조금 작아지면 텍스트 크기 조정 */
+  }
+
+  .main-button {
+    font-size: 18px; /* 버튼 텍스트 크기 줄이기 */
+    padding: 18px 36px; /* 버튼 크기 줄이기 */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #main-text {
+    font-size: 36px; /* 화면이 더 작아지면 텍스트 크기 줄이기 */
+  }
+
+  .main-button {
+    font-size: 16px; /* 버튼 텍스트 크기 줄이기 */
+    padding: 15px 30px; /* 버튼 크기 줄이기 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #main-text {
+    font-size: 28px; /* 더 작은 화면에서는 텍스트 크기 줄이기 */
+    margin-bottom: 30px; /* 텍스트와 버튼 사이 여백 줄이기 */
+  }
+
+  .main-button {
+    font-size: 14px; /* 버튼 글자 크기 줄이기 */
+    padding: 12px 24px; /* 버튼 크기 추가로 줄이기 */
+    width: 80%; /* 버튼의 너비를 더 넓게 설정 */
+    max-width: 300px; /* 버튼 최대 너비 제한 */
+  }
+}

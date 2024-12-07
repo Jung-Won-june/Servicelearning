@@ -1,0 +1,213 @@
+/* 기본 스타일 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+/* 배경 스타일 */
+body {
+  background: hsl(124, 35%, 35%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#login-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#login-button:hover {
+  color: #ffeb3b;
+}
+
+/* 오운완 챌린지 섹션 */
+#workout-challenge-section {
+  margin-left: 140px;
+  padding: 40px 20px;
+  width: calc(100% - 140px);
+  text-align: center;
+  border-radius: 10px;
+}
+
+#workout-challenge-section h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #ffeb3b, #ff9800);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 캘린더 설명 텍스트 */
+.calendar-instructions {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* 캘린더 스타일 */
+.calendar-container {
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#calendar {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+#calendar th,
+#calendar td {
+  padding: 15px;
+  text-align: center;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#calendar th {
+  background-color: #333;
+  color: #fff;
+}
+
+#calendar td.empty {
+  background-color: #f1f1f1;
+  cursor: default;
+}
+
+/* 📅 운동 완료 날짜 표시 스타일 */
+.calendar-cell.completed {
+  position: relative;
+  z-index: 0; /* 기본값을 0으로 */
+  color: white !important; /* 숫자가 명확히 보이도록 설정 */
+}
+
+.calendar-cell.completed::after {
+  content: '';
+  width: 36px; 
+  height: 36px;
+  background-color: #FF9800;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* 숫자보다 뒤에 위치하도록 */
+}
+
+
+/* 📅 선택된 날짜의 전체 배경색 스타일 */
+.calendar-cell.selected {
+  background-color: hsl(124, 40%, 50%) !important;; /* 기존 hsl(124, 40%, 45%)에서 더 명확한 색으로 */
+  color: white !important; /* 글씨 색상 흰색으로 변경 */
+  border-radius: 0; /* 동그라미 제거 */
+  box-shadow: none; /* 그림자 효과 제거 */
+}
+.calendar-cell:hover {
+  background-color: hsl(124, 40%, 50%) !important; 
+  color: white !important; 
+}
+
+
+
+
+
+/* 운동 사진 업로드 섹션 */
+.upload-container {
+  width: 70%;
+  max-width: 500px;
+  margin: 50px auto 0;
+  padding: 20px;
+  background-color: #37474f; /* 차분한 어두운 회색 */
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.upload-container label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.upload-container input[type="file"] {
+  width: 90%; /* 크기 조정 */
+  padding: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* 🚀 업로드 버튼 스타일 */
+#upload-button {
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff5722; /* 보색으로 변경 (#0288d1 -> #ff5722) */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#upload-button:hover {
+  background-color: #e64a19; /* 보색의 더 진한 톤 */
+  transform: scale(1.05);
+}
+
+#upload-button:active {
+  transform: scale(0.95);
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+  #workout-challenge-section h2 {
+    font-size: 28px;
+  }
+
+  #calendar td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #upload-button {
+    font-size: 14px;
+    padding: 6px 20px;
+  }
+}
