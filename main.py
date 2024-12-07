@@ -375,6 +375,8 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     # 추가적인 오리진을 여기 추가
+    "https://wellbeingnavigator.com",  # 프로덕션 도메인 추가
+    "https://www.wellbeingnavigator.com",  # www 도메인도 추가
 ]
 
 app.add_middleware(
@@ -388,5 +390,5 @@ app.add_middleware(
 # 애플리케이션 실행
 if __name__ == "__main__":
     import uvicorn
-
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    port = int(os.environ.get("PORT", 8000))  # Railway에서 PORT 환경변수 읽기
+    uvicorn.run(app, host="0.0.0.0", port=port)
