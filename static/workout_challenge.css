@@ -4,7 +4,8 @@ body {
   height: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  overflow-y: auto; /* 세로 스크롤 허용 */
 }
 
 /* 배경 스타일 */
@@ -64,6 +65,7 @@ body {
 }
 
 #calendar {
+  min-width: 100%;
   width: 100%;
   border-collapse: collapse;
   margin: 0 auto;
