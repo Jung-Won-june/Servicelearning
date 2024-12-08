@@ -243,7 +243,8 @@ async def submit_workout_challenge(student_id: str, file: UploadFile = File(...)
         raise HTTPException(status_code=400, detail="허용되지 않는 파일 형식입니다.")
     
     # 업로드된 파일 저장
-    file_location = f"./uploads/{uuid.uuid4()}_{file.filename}"
+    file_location = f"/tmp/{uuid.uuid4()}_{file.filename}"
+
     
     with open(file_location, "wb") as f:
         f.write(file.file.read())
