@@ -20,13 +20,14 @@ body {
 }
 
 /* 스트레칭 컨테이너 */
+/* 스트레칭 컨테이너 */
 #stretching-container {
-  margin-left: 140px;
   padding: 40px 20px;
-  width: calc(100% - 140px);
+  width: 100%; /* 전체 너비로 설정 */
   border-radius: 10px;
   background-color: #333;
 }
+
 
 #stretching-container h2 {
   font-size: 48px;

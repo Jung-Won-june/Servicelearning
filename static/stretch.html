@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스트레칭</title>
-    <link rel="stylesheet" href="/static/stretch.css">
     <link rel="stylesheet" href="/static/sidebar.css">
+    <link rel="stylesheet" href="/static/stretch.css">
 </head>
 <body>
-    <nav id="sidebar">
+    <!-- 열기/닫기 버튼 -->
+    <button id="open-btn" class="open-btn">☰</button>
+
+    <!-- 사이드바 -->
+    <nav id="sidebar" class="closed">
         <ul>
-            <li><a href="/challenge_check">챌린지</a></li>
+            <li><a href="/challenge_selection">챌린지</a></li>
             <li><a href="/stretching">스트레칭</a></li>
-            <li><a href="/login">로그인</a></li>
         </ul>
     </nav>
+
+    <!-- 스트레칭 메인 콘텐츠 -->
     <div id="stretching-container">
         <h2>스트레칭 부위를 선택하세요</h2>
         <div id="body-parts">
@@ -27,10 +32,12 @@
         <div id="stretching-description-section">
             <p id="stretching-description">스트레칭 부위를 선택해 주세요.</p>
             <div id="stretching-video-container">
-                <iframe id="video-frame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
+
+    <script src="/static/sidebar.js" defer></script>
     <script src="/static/stretch.js" defer></script>
 </body>
 </html>

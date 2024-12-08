@@ -1,21 +1,29 @@
+/* 기본 스타일 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* 사이드바 스타일 */
 #sidebar {
   position: absolute;
   top: 0;
   left: 0;
-  width: 230px;
+  width: 200px;
   height: 100vh;
   background-color: #333;
   color: white;
   padding-top: 20px;
-  padding-left: 20px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  transition: width 0.3s ease;
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
 #sidebar ul {
   list-style: none;
   padding: 0;
+  margin-top: 80px; /* X 버튼 아래로 충분한 간격 추가 */
 }
 
 #sidebar ul li {
@@ -35,4 +43,90 @@
 #sidebar ul li a:hover {
   background-color: #ffeb3b;
   padding-left: 30px;
+}
+
+/* 사이드바가 닫혔을 때 (왼쪽으로 숨기기) */
+#sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* 열기 버튼 스타일 */
+.open-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1100;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.open-btn:hover {
+  background-color: #555; /* hover 상태에서 어두워짐 */
+}
+
+.open-btn:active {
+  background-color: #777; /* 클릭할 때 더 어두워짐 */
+}
+
+.open-btn span {
+  font-size: 24px;
+}
+
+/* 메인 콘텐츠 스타일 */
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* 사이드바가 닫힐 때 메인 콘텐츠의 왼쪽 여백을 줄임 */
+#sidebar.closed ~ .content {
+  margin-left: 20px;
+}
+
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+  #sidebar {
+    width: 150px; /* 모바일에서 사이드바 폭 줄이기 */
+    font-size: 14px; /* 텍스트 크기 축소 */
+  }
+
+  #sidebar ul li a {
+    padding: 8px 15px; /* 내부 간격 줄이기 */
+    font-size: 14px; /* 링크 텍스트 크기 축소 */
+  }
+
+  .open-btn {
+    width: 35px; /* 버튼 크기 축소 */
+    height: 35px;
+    font-size: 20px; /* 버튼 텍스트 크기 축소 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #sidebar {
+    width: 120px; /* 매우 작은 화면에서 사이드바 폭 더 줄이기 */
+  }
+
+  #sidebar ul li a {
+    padding: 5px 10px; /* 내부 간격 추가로 줄이기 */
+    font-size: 12px; /* 텍스트 크기 더 축소 */
+  }
+
+  .open-btn {
+    width: 30px; /* 버튼 크기 더 축소 */
+    height: 30px;
+    font-size: 18px; /* 버튼 텍스트 크기 더 축소 */
+  }
 }

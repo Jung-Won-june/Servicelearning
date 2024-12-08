@@ -21,43 +21,6 @@ body {
   overflow: hidden;
 }
 
-/* 사이드바 스타일 */
-#sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 100vh;
-  background-color: #333;
-  color: white;
-  padding-top: 20px;
-  padding-left: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  transition: width 0.3s ease;
-}
-
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-#sidebar ul li {
-  margin-bottom: 20px;
-}
-
-#sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px 20px;
-  display: block;
-  transition: background-color 0.3s ease, padding-left 0.3s ease;
-}
-
-#sidebar ul li a:hover {
-  background-color: #ffeb3b;
-  padding-left: 30px;
-}
 
 /* 러닝 챌린지 섹션 */
 #running-challenge-section {
