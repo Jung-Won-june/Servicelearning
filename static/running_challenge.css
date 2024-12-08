@@ -18,15 +18,15 @@ body {
   text-align: center;
   flex-direction: column;
   box-sizing: border-box;
-  overflow: hidden;
 }
-
 
 /* 러닝 챌린지 섹션 */
 #running-challenge-section {
-  margin-left: 140px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 40px 20px;
-  width: calc(100% - 140px);
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   border-radius: 10px;
 }
@@ -45,7 +45,7 @@ body {
 
 /* 업로드 폼 */
 .running-container {
-  width: 80%;
+  width: 90%;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -73,7 +73,7 @@ body {
 }
 
 .running-container input[type="number"] {
-  width: 60%;
+  width: 100%;
 }
 
 #upload-button {
@@ -86,8 +86,101 @@ body {
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: block;
+  margin: 20px auto;
 }
 
+#upload-button:hover {
+  background-color: #ffeb3b;
+  color: #333;
+  transform: scale(1.05);
+}
+
+#upload-button:active {
+  transform: scale(0.95);
+}
+
+/* 리더보드 섹션 */
+#leaderboard-section {
+  margin: 40px auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+#leaderboard {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#leaderboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+#leaderboard ul li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#leaderboard ul li span {
+  font-weight: bold;
+  color: #ff9800;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 1024px) {
+  #running-challenge-section h2 {
+    font-size: 36px;
+  }
+
+  .running-container input[type="number"] {
+    width: 90%;
+  }
+
+  #upload-button {
+    font-size: 16px;
+    padding: 8px 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #running-challenge-section h2 {
+    font-size: 28px;
+  }
+
+  .running-container input[type="number"] {
+    width: 100%;
+  }
+
+  #upload-button {
+    font-size: 14px;
+    padding: 6px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #running-challenge-section {
+    padding: 20px;
+  }
+
+  #running-challenge-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .running-container {
+    width: 90%;
+  }
+
+  #upload-button {
+    font-size: 12px;
+    padding: 4px 16px;
+  }
+}
 #upload-button:hover {
   background-color: #ffeb3b;
   color: #333;
@@ -180,12 +273,12 @@ body {
     padding: 4px 16px;
   }
 }
+
 input[type="number"] {
   appearance: textfield; /* 표준 속성 */
   -moz-appearance: textfield; /* Firefox 호환성 */
   -webkit-appearance: textfield; /* Chrome, Safari 호환성 */
 }
-
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

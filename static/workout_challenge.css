@@ -24,9 +24,11 @@ body {
 /* 오운완 챌린지 섹션 */
 #workout-challenge-section {
   padding: 40px 20px;
-  width: 100%; /* 전체 너비로 설정 */
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   border-radius: 10px;
+  margin: 0 auto;
 }
 
 #workout-challenge-section h2 {
@@ -52,9 +54,8 @@ body {
 
 /* 캘린더 스타일 */
 .calendar-container {
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   max-width: 800px;
-  margin: 0 auto;
   position: relative;
   background-color: #f1f1f1;
   border-radius: 10px;
@@ -98,7 +99,7 @@ body {
 
 .calendar-cell.completed::after {
   content: '';
-  width: 36px; 
+  width: 36px;
   height: 36px;
   background-color: #FF9800;
   border-radius: 50%;
@@ -109,40 +110,28 @@ body {
   z-index: -1; /* 숫자보다 뒤에 위치하도록 */
 }
 
-
 /* 📅 선택된 날짜의 전체 배경색 스타일 */
 .calendar-cell.selected {
-  background-color: hsl(124, 40%, 50%) !important;; /* 기존 hsl(124, 40%, 45%)에서 더 명확한 색으로 */
+  background-color: hsl(124, 40%, 50%) !important;
   color: white !important; /* 글씨 색상 흰색으로 변경 */
   border-radius: 0; /* 동그라미 제거 */
   box-shadow: none; /* 그림자 효과 제거 */
 }
-.calendar-cell:hover {
-  background-color: hsl(124, 40%, 50%) !important; 
-  color: white !important; 
-}
 
+.calendar-cell:hover {
+  background-color: hsl(124, 40%, 50%) !important;
+  color: white !important;
+}
 
 /* 운동 사진 업로드 섹션 */
 .upload-container {
-  width: 70%;
+  width: 90%;
   max-width: 500px;
-  margin: 50px auto 0;
+  margin: 0 auto 50px;
   padding: 20px;
-  background-color: #37474f; /* 차분한 어두운 회색 */
+  background-color: #37474f;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.content {
-  margin-left: 220px; /* 사이드바가 열렸을 때 */
-  padding: 20px;
-  transition: margin-left 0.3s ease;
-}
-
-/* 사이드바가 닫혔을 때 콘텐츠 위치 조정 */
-#sidebar.closed ~ .content {
-  margin-left: 20px;
 }
 
 .upload-container label {
@@ -153,7 +142,7 @@ body {
 }
 
 .upload-container input[type="file"] {
-  width: 90%; /* 크기 조정 */
+  width: 100%;
   padding: 8px;
   margin-bottom: 15px;
   font-size: 14px;
@@ -163,21 +152,23 @@ body {
   color: #333;
 }
 
-/* 🚀 업로드 버튼 스타일 */
+/* 업로드 버튼 */
 #upload-button {
   padding: 10px 30px;
   font-size: 16px;
   font-weight: bold;
   color: white;
-  background-color: #ff5722; /* 보색으로 변경 (#0288d1 -> #ff5722) */
+  background-color: #ff5722;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: block;
+  margin: 20px auto;
 }
 
 #upload-button:hover {
-  background-color: #e64a19; /* 보색의 더 진한 톤 */
+  background-color: #e64a19;
   transform: scale(1.05);
 }
 
@@ -199,5 +190,27 @@ body {
   #upload-button {
     font-size: 14px;
     padding: 6px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #workout-challenge-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .calendar-container {
+    padding: 10px;
+    max-width: 90%;
+  }
+
+  #calendar td {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  #upload-button {
+    font-size: 12px;
+    padding: 5px 15px;
   }
 }

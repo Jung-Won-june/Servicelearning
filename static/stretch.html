@@ -23,11 +23,17 @@
     <div id="stretching-container">
         <h2>스트레칭 부위를 선택하세요</h2>
         <div id="body-parts">
-            <button onclick="handlePartClick('A')">전신</button>
-            <button onclick="handlePartClick('B')">어깨, 목</button>
-            <button onclick="handlePartClick('C')">등</button>
-            <button onclick="handlePartClick('D')">허리</button>
-            <button onclick="handlePartClick('E')">손목</button>
+            <!-- 상단 버튼 -->
+            <div class="row">
+                <button onclick="handlePartClick('A')">전신</button>
+                <button onclick="handlePartClick('B')">어깨, 목</button>
+                <button onclick="handlePartClick('C')">등</button>
+            </div>
+            <!-- 하단 버튼 -->
+            <div class="row">
+                <button onclick="handlePartClick('D')">허리</button>
+                <button onclick="handlePartClick('E')">손목</button>
+            </div>
         </div>
         <div id="stretching-description-section">
             <p id="stretching-description">스트레칭 부위를 선택해 주세요.</p>

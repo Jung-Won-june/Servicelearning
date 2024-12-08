@@ -4,15 +4,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0; /* 배경 색상 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* 화면 가득 차도록 */
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  height: 100vh; /* 화면 전체 높이 사용 */
   flex-direction: column;
-  padding-top: 60px; /* 헤더 높이만큼 여백 추가 */
 }
 
-/* 헤더 스타일 - 고정 위치 */
+/* 헤더 스타일 */
 header.header {
   position: fixed; /* 고정 위치 */
   top: 0;
@@ -20,27 +19,29 @@ header.header {
   width: 100%;
   background-color: #333;
   color: white;
-  padding: 20px 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
-  z-index: 1000; /* 다른 콘텐츠보다 위로 */
-  display: flex; /* 플렉스 박스 사용 */
-  justify-content: space-between; /* 양쪽 끝으로 요소 배치 */
-  align-items: center; /* 세로 가운데 정렬 */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* 로고와 버튼을 양쪽으로 정렬 */
+  align-items: center;
 }
 
-/* WBN 로고 스타일 */
 header .logo h1 {
   margin: 0;
-  font-size: 36px;
+  font-size: 24px; /* 모바일 화면에 적합한 크기 */
   background: linear-gradient(135deg, #388e3c, #4caf50); /* 초록색 그라데이션 */
-  -webkit-background-clip: text; /* 글자에 그라데이션 색을 적용 */
-  color: transparent; /* 배경색을 투명하게 하여 그라데이션만 보이게 설정 */
+  background-clip: text; /* 표준 속성 추가 */
+  -webkit-background-clip: text; /* WebKit 브라우저 전용 */
+  -webkit-text-fill-color: transparent; /* WebKit 브라우저에서 텍스트 배경 투명 */
+  color: transparent; /* 기본 텍스트 색상 투명 */
 }
 
-/* 홈 버튼 스타일 */
+
+/* 홈 버튼 */
 .home-button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 8px 16px;
+  font-size: 14px; /* 모바일 화면에서 적합한 크기 */
   color: white;
   background-color: #388e3c;
   text-decoration: none;
@@ -52,29 +53,29 @@ header .logo h1 {
   background-color: #2c6b2f;
 }
 
-/* 로그인 컨테이너 스타일 */
+/* 로그인 컨테이너 */
 .login-container {
-  width: 100%;
-  max-width: 400px; /* 최대 너비 */
+  width: 90%; /* 모바일 화면에 적합한 너비 */
+  max-width: 400px; /* 데스크톱에서 최대 너비 제한 */
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   box-sizing: border-box;
-  margin-top: 80px; /* 헤더 아래에 여백을 추가하여 로그인 폼이 헤더와 겹치지 않도록 */
+  margin-top: 80px; /* 헤더와 겹치지 않도록 여백 추가 */
 }
 
-/* 로그인 제목 스타일 */
+/* 로그인 제목 */
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 20px; /* 모바일에 적합한 크기 */
   color: #333;
 }
 
-/* 입력 필드 그룹 스타일 */
+/* 입력 필드 */
 .input-group {
-  margin-bottom: 20px; /* 입력 필드 간 간격 */
+  margin-bottom: 15px;
 }
 
 .input-group label {
@@ -87,7 +88,7 @@ h2 {
 .input-group input {
   width: 100%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
@@ -95,16 +96,16 @@ h2 {
 
 .input-group input:focus {
   outline: none;
-  border-color: #4caf50; /* 포커스 시 테두리 색상 */
+  border-color: #4caf50;
 }
 
-/* 로그인 버튼 스타일 */
+/* 로그인 버튼 */
 .login-button {
   width: 100%;
   padding: 12px;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
-  background-color: #4caf50; /* 버튼 색상 */
+  background-color: #4caf50;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -112,10 +113,10 @@ h2 {
 }
 
 .login-button:hover {
-  background-color: #45a049; /* 버튼 호버 색상 */
+  background-color: #45a049;
 }
 
-/* 오류 메시지 스타일 */
+/* 오류 메시지 */
 .error {
   color: red;
   font-size: 14px;
@@ -124,18 +125,38 @@ h2 {
 }
 
 /* 반응형 디자인 */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   h2 {
-    font-size: 20px;
+    font-size: 18px; /* 제목 크기 줄임 */
+  }
+
+  .login-container {
+    padding: 15px; /* 내부 여백 줄임 */
   }
 
   .input-group input {
-    font-size: 14px;
+    font-size: 13px;
     padding: 8px;
   }
 
   .login-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h2 {
     font-size: 16px;
+  }
+
+  .input-group input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .login-button {
+    font-size: 14px;
     padding: 10px;
   }
 }
