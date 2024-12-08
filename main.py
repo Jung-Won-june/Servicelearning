@@ -72,7 +72,7 @@ async def startup_event():
 # 정적 파일 서빙
 app.mount("/static", StaticFiles(directory="static"), name="static")
 STATIC_DIR = "./static"
-USER_PAGES_DIR = "./user_pages"
+USER_PAGES_DIR = "./tmp"
 os.makedirs(USER_PAGES_DIR, exist_ok=True)
 # Second Part of main.py
 
@@ -123,7 +123,7 @@ async def login_page():
 async def login(student_id: str = Form(...), db: Session = Depends(get_db)):
     # 사용자가 데이터베이스에 있는지 확인
     user = db.query(User).filter(User.student_id == student_id).first()
-    user_dir_path = os.path.abspath(os.path.join('user_pages', student_id))
+    user_dir_path = os.path.abspath(os.path.join('tmp', student_id))
     if not user:
         # 사용자 생성
         new_user = User(student_id=student_id, username=f"User_{student_id}")
@@ -173,7 +173,7 @@ async def running_challenge_page(request: Request):
     student_id = request.cookies.get("student_id")
     if not student_id:
         return RedirectResponse(url="/login", status_code=303)
-    user_page_path = os.path.abspath(os.path.join('user_pages', student_id))
+    user_page_path = os.path.abspath(os.path.join('tmp', student_id))
     running_path = os.path.join(user_page_path, "running_challenge.html")
     try:
         with open(running_path, "r", encoding="utf-8") as file:
@@ -187,7 +187,7 @@ async def workout_challenge_page(request: Request):
     student_id = request.cookies.get("student_id")
     if not student_id:
         return RedirectResponse(url="/login", status_code=303)
-    user_page_path = os.path.abspath(os.path.join('user_pages', student_id))
+    user_page_path = os.path.abspath(os.path.join('tmp', student_id))
     workout_path = os.path.join(user_page_path, "workout_challenge.html")
     try:
         with open(workout_path, "r", encoding="utf-8") as file:
