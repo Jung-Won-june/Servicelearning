@@ -1,132 +1,95 @@
-/* 기본 스타일 초기화 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 사이드바 스타일 */
+/* 상단 사이드바 스타일 */
 #sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 100vh;
+  width: 100%; /* 화면 전체 너비 */
+  height: 60px; /* 높이 고정 */
   background-color: #333;
   color: white;
-  padding-top: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex; /* Flexbox 사용 */
+  align-items: center; /* 세로 정렬 */
+  justify-content: flex-start; /* 리스트를 왼쪽에 정렬 */
+  padding-left: 20px; /* 왼쪽 여백 추가 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-100%); /* 기본적으로 숨김 상태 */
   transition: transform 0.3s ease;
-  z-index: 1000;
+  z-index: 999; /* 콘텐츠 위로 표시 */
+}
+
+#sidebar:not(.closed) {
+  transform: translateY(0); /* 열림 상태 */
 }
 
 #sidebar ul {
+  display: flex; /* 리스트 항목을 가로로 배치 */
   list-style: none;
   padding: 0;
-  margin-top: 80px; /* X 버튼 아래로 충분한 간격 추가 */
+  margin: 0;
+  margin-left: 60px;
 }
 
 #sidebar ul li {
-  margin-bottom: 20px;
+  margin-right: 20px; /* 항목 간격 추가 */
 }
 
 #sidebar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 21px;
-  padding: 10px 20px;
+  font-size: 16px;
   font-weight: bold;
-  display: block;
-  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
 }
 
 #sidebar ul li a:hover {
   background-color: #ffeb3b;
-  padding-left: 30px;
-}
-
-/* 사이드바가 닫혔을 때 (왼쪽으로 숨기기) */
-#sidebar.closed {
-  transform: translateX(-100%);
 }
 
 /* 열기 버튼 스타일 */
 .open-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  position: fixed;
+  top: 10px;
+  left: 20px; /* 오른쪽 상단에 위치 */
   background-color: #333;
   color: white;
   border: none;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1100;
+  font-size: 20px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
   transition: background-color 0.3s ease;
 }
 
 .open-btn:hover {
-  background-color: #555; /* hover 상태에서 어두워짐 */
+  background-color: #555;
 }
 
 .open-btn:active {
-  background-color: #777; /* 클릭할 때 더 어두워짐 */
+  background-color: #777;
 }
 
-.open-btn span {
-  font-size: 24px;
-}
-
-/* 메인 콘텐츠 스타일 */
+/* 메인 콘텐츠 */
 .content {
-  margin-left: 250px;
+  margin-top: 60px; /* 사이드바 높이만큼 아래로 밀림 */
   padding: 20px;
-  transition: margin-left 0.3s ease;
+  transition: margin-top 0.3s ease;
 }
 
-/* 사이드바가 닫힐 때 메인 콘텐츠의 왼쪽 여백을 줄임 */
+/* 사이드바 닫힌 상태에서 콘텐츠 위치 */
 #sidebar.closed ~ .content {
-  margin-left: 20px;
+  margin-top: 20px; /* 사이드바가 숨겨지면 기본 여백 */
 }
-
-
-/* 모바일 반응형 스타일 */
 @media screen and (max-width: 768px) {
   #sidebar {
-    width: 150px; /* 모바일에서 사이드바 폭 줄이기 */
-    font-size: 14px; /* 텍스트 크기 축소 */
+      height: 50px;
   }
-
   #sidebar ul li a {
-    padding: 8px 15px; /* 내부 간격 줄이기 */
-    font-size: 14px; /* 링크 텍스트 크기 축소 */
-  }
-
-  .open-btn {
-    width: 35px; /* 버튼 크기 축소 */
-    height: 35px;
-    font-size: 20px; /* 버튼 텍스트 크기 축소 */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #sidebar {
-    width: 120px; /* 매우 작은 화면에서 사이드바 폭 더 줄이기 */
-  }
-
-  #sidebar ul li a {
-    padding: 5px 10px; /* 내부 간격 추가로 줄이기 */
-    font-size: 12px; /* 텍스트 크기 더 축소 */
-  }
-
-  .open-btn {
-    width: 30px; /* 버튼 크기 더 축소 */
-    height: 30px;
-    font-size: 18px; /* 버튼 텍스트 크기 더 축소 */
+      font-size: 14px;
   }
 }
