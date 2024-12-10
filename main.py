@@ -214,7 +214,7 @@ async def submit_running_challenge(student_id: str, file: UploadFile = File(...)
         return JSONResponse({"error": "사용자를 찾을 수 없습니다."}, status_code=404)
 
     # 업로드된 파일 저장
-    file_location = f"./uploads/{uuid.uuid4()}_{file.filename}"
+    file_location = f"/tmp/{uuid.uuid4()}_{file.filename}"
     with open(file_location, "wb") as f:
         f.write(file.file.read())
 
